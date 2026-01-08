@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_potash_pebble": {
+      "conditions": {
+        "items": [
+          {
+            "items": "agriculture:potash_pebble"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "agriculture:fertilizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_potash_pebble"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "agriculture:fertilizer"
+    ]
+  }
+}

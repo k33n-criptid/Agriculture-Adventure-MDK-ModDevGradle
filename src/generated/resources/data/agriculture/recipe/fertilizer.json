@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "agriculture:potash_pebble"
+    },
+    "D": {
+      "item": "minecraft:dirt"
+    },
+    "P": {
+      "item": "agriculture:phosphorite_pebble"
+    }
+  },
+  "pattern": [
+    "DPP",
+    "ADP",
+    "AAD"
+  ],
+  "result": {
+    "count": 3,
+    "id": "agriculture:fertilizer"
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "variants": {
+    "dry_ticks=0,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=0,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=0,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=0,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=0,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=0,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=0,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=0,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=1,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=1,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=1,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=1,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=1,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=1,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=1,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=1,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=10,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=10,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=10,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=10,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=10,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=10,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=10,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=10,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=11,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=11,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=11,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=11,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=11,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=11,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=11,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=11,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=12,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=12,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=12,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=12,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=12,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=12,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=12,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=12,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=13,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=13,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=13,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=13,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=13,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=13,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=13,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=13,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=14,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=14,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=14,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=14,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=14,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=14,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=14,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=14,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=15,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=15,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=15,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=15,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=15,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=15,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=15,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=15,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=16,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=16,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=16,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=16,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=16,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=16,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=16,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=16,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=17,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=17,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=17,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=17,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=17,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=17,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=17,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=17,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=18,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=18,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=18,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=18,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=18,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=18,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=18,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=18,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=19,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=19,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=19,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=19,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=19,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=19,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=19,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=19,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=2,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=2,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=2,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=2,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=2,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=2,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=2,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=2,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=20,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=20,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=20,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=20,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=20,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=20,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=20,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=20,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=3,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=3,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=3,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=3,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=3,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=3,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=3,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=3,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=4,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=4,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=4,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=4,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=4,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=4,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=4,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=4,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=5,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=5,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=5,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=5,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=5,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=5,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=5,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=5,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=6,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=6,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=6,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=6,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=6,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=6,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=6,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=6,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=7,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=7,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=7,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=7,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=7,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=7,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=7,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=7,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=8,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=8,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=8,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=8,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=8,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=8,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=8,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=8,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=9,moisture=0": {
+      "model": "agriculture:block/nutrient_soil_dry"
+    },
+    "dry_ticks=9,moisture=1": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=9,moisture=2": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=9,moisture=3": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=9,moisture=4": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=9,moisture=5": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=9,moisture=6": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    },
+    "dry_ticks=9,moisture=7": {
+      "model": "agriculture:block/nutrient_soil_wet"
+    }
+  }
+}

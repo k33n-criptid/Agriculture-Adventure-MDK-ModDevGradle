@@ -1,0 +1,9 @@
+// 1.21	2026-01-07T13:37:51.4027849	Recipes
+2a71a636b32f7f652cc8a05e2b9cd95acea94659 data/agriculture/advancement/recipes/misc/cooking_pot.json
+f23761e784b4350a5ff62933ac10babda1262093 data/agriculture/advancement/recipes/misc/cucumber_slice.json
+772aea4f6f4ebc1c1cf791d5ed77b07a804f84f0 data/agriculture/advancement/recipes/misc/fertilizer.json
+66e2cf9e1312241571d6af29947921d182c64897 data/agriculture/advancement/recipes/misc/watering_can.json
+fbc6b3d7b10b7873fc78a3009b93caa444998a2b data/agriculture/recipe/cooking_pot.json
+f80641cabe493a1a927d6c245adc5b37260d703e data/agriculture/recipe/cucumber_slice.json
+c96888c33f1a372f6c8465108f6cb613662e6ea9 data/agriculture/recipe/fertilizer.json
+56d7c29db92fd838a31ecb64758dfa563e946a0c data/agriculture/recipe/watering_can.json

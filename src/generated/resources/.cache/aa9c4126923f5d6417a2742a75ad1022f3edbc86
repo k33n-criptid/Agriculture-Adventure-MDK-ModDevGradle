@@ -1,0 +1,10 @@
+// 1.21	2026-01-07T13:54:33.9385197	Block States: agriculture
+bdb9ff64c816a371ebe4f92be0e9bc54001f759a assets/agriculture/blockstates/cooking_pot.json
+4847493a3651606475a9bc796dc9b8f64be96bff assets/agriculture/blockstates/nutrient_soil.json
+5182302a57145a8ed4b12d7bd52949377beb6804 assets/agriculture/blockstates/phosphorite.json
+436a6e4bb4570c36e10a6657c7bd9df5d415707c assets/agriculture/blockstates/potash.json
+9ef6af0df5425a51ae1b1137711fda517d3fbb15 assets/agriculture/models/block/phosphorite.json
+90b94bec6be1440dc8cf95c893be3e1ef9de314b assets/agriculture/models/block/potash.json
+ffcbc1b1d6504c742796c0f8bdb2c701283bd322 assets/agriculture/models/item/nutrient_soil.json
+7ef335d704de7bb6f92ab91aec7bc96b0c1c9dc7 assets/agriculture/models/item/phosphorite.json
+f8ca99f8a6ce2b63ac172608c369b24f2ec888c5 assets/agriculture/models/item/potash.json

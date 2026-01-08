@@ -1,0 +1,24 @@
+{
+  "item.agriculture.cucumber": "Cucumber",
+  "item.agriculture.cucumber_slice": "Cucumber Slice",
+  "item.agriculture.watering_can": "Watering Can",
+  "item.agriculture.water_stick": "Water Stick",
+  "item.agriculture.phosphorite_pebble": "Phosphorite Pebble",
+  "item.agriculture.potash_pebble": "Potash Pebble",
+  "item.agriculture.compost": "Compost",
+  "item.agriculture.fertilizer": "Fertilizer",
+
+
+  "block.agriculture.cooking_pot": "Cooking Pot",
+  "block.agriculture.nutrient_soil": "Nutrient Soil",
+  "block.agriculture.potash": "Potash",
+  "block.agriculture.phosphorite": "Phosphorite",
+
+  "creativetab.agriculture.agriculture_items": "Agriculture Items",
+  "creativetab.agriculture.agriculture_blocks": "Agriculture Blocks",
+
+  "tooltip.agriculture.compost": "Press §eShift§r for more information",
+  "tooltip.agriculture.compost.shift_down": "Right click farmland to change it to nutrient soil!",
+  "tooltip.agriculture.fertilizer": "Press §eShift§r for more information",
+  "tooltip.agriculture.fertilizer.shift_down": "Right click crops or plants to grow them in a radius"
+}

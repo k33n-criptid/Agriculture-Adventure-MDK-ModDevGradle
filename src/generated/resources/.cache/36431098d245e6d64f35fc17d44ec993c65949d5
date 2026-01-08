@@ -1,0 +1,3 @@
+// 1.21	2026-01-05T23:01:46.7596209	Tags for minecraft:block mod id agriculture
+cd5ab9bbe82c289676477604eebc3c311dd5afb8 data/minecraft/tags/block/mineable/pickaxe.json
+e34890433ab01bbe68c5cc2f2eee075b357413ee data/minecraft/tags/block/needs_stone_tool.json

@@ -1,0 +1,8 @@
+{
+	"parent": "block/farmland",
+	"textures": {
+		"top": "agriculture:block/nutrient_soil_wet",
+		"side": "agriculture:block/soil",
+		"bottom": "agriculture:block/soil"
+	}
+}

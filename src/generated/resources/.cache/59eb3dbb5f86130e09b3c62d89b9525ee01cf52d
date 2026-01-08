@@ -1,0 +1,5 @@
+// 1.21	2026-01-05T22:48:52.1776053	Loot Tables
+1c365a96fddcd8f03ede7ed2fa6cbe19985066d9 data/agriculture/loot_table/blocks/cooking_pot.json
+594f4fea79a146bba9fe3d0a1a784632789de1e6 data/agriculture/loot_table/blocks/nutrient_soil.json
+37988365ced859eb76a5aa3e9d78562324aa2f76 data/agriculture/loot_table/blocks/phosphorite.json
+4d3f340e37ee0d454b4b0a206742e51711b42c63 data/agriculture/loot_table/blocks/potash.json
