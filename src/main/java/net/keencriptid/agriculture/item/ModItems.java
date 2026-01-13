@@ -9,6 +9,7 @@ import net.keencriptid.agriculture.item.custom.WaterStickItem;
 import net.keencriptid.agriculture.item.custom.WateringCanItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -41,6 +42,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> COOKING_POT = ITEMS.register("cooking_pot",
             () -> new BlockItem(ModBlocks.COOKING_POT.get(), new Item.Properties().stacksTo(64)));
+
+    public static final DeferredItem<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.CUCUMBER_CROP.get(), new Item.Properties()));
 
 
 

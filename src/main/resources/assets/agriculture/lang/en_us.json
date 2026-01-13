@@ -7,12 +7,13 @@
   "item.agriculture.potash_pebble": "Potash Pebble",
   "item.agriculture.compost": "Compost",
   "item.agriculture.fertilizer": "Fertilizer",
-
+  "item.agriculture.cucumber_seeds": "Cucumber Seeds",
 
   "block.agriculture.cooking_pot": "Cooking Pot",
   "block.agriculture.nutrient_soil": "Nutrient Soil",
   "block.agriculture.potash": "Potash",
   "block.agriculture.phosphorite": "Phosphorite",
+  "block.agriculture.cucumber_crop": "Cucumber Crop",
 
   "creativetab.agriculture.agriculture_items": "Agriculture Items",
   "creativetab.agriculture.agriculture_blocks": "Agriculture Blocks",

@@ -28,7 +28,7 @@ public class FertilizerItem extends BoneMealItem {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
-        BlockPos center = context.getClickedPos();
+        BlockPos pos = context.getClickedPos();
         Player player = context.getPlayer();
         ItemStack stack = context.getItemInHand();
         boolean grown = false;
@@ -36,20 +36,20 @@ public class FertilizerItem extends BoneMealItem {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
-        for (BlockPos pos : BlockPos.betweenClosed(
-                center.offset(-radius, 0, -radius),
-                center.offset(radius, 0, radius)
+        for (BlockPos targetPos : BlockPos.betweenClosed(
+                pos.offset(-radius, 0, -radius),
+                pos.offset(radius, 0, radius)
         )) {
-            if (isValidBlock(level, center)){
+            if (!isValidBlock(level, targetPos)){
                 continue;
             }
 
-            if (level.isEmptyBlock(pos)) {
+            if (level.isEmptyBlock(targetPos)) {
                 continue;
             }
 
             for (int i = 0; i < 8; i++) {
-                if (!BoneMealItem.applyBonemeal(stack, level, pos, player)) {
+                if (!BoneMealItem.applyBonemeal(stack, level, targetPos, player)) {
                     break;
                 }
                 grown = true;
@@ -59,7 +59,7 @@ public class FertilizerItem extends BoneMealItem {
             if (player == null || !player.getAbilities().instabuild) {
                 stack.shrink(1);
             }
-            level.levelEvent(1505, center, 0);
+            level.levelEvent(1505, pos, 0);
 
             return InteractionResult.CONSUME;
         }
@@ -67,8 +67,8 @@ public class FertilizerItem extends BoneMealItem {
         return InteractionResult.PASS;
     }
 
-    private boolean isValidBlock(Level level, BlockPos center) {
-        return level.getBlockState(center).is(ModTags.Blocks.AGRI_CROPS);
+    private boolean isValidBlock(Level level, BlockPos pos) {
+        return level.getBlockState(pos).is(ModTags.Blocks.AGRI_CROPS);
     }
 
 

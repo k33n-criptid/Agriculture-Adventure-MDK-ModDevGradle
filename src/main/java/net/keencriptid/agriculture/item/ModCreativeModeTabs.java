@@ -27,6 +27,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.POTASH_PEBBLE);
                         output.accept(ModItems.COMPOST);
                         output.accept(ModItems.FERTILIZER);
+                        output.accept(ModItems.CUCUMBER_SEEDS);
                     }).build());
 
     public static final Supplier<CreativeModeTab> AGRICULTURE_BLOCKS_TAB = CREATIVE_MODE_TAB.register("agriculture_blocks_tab",

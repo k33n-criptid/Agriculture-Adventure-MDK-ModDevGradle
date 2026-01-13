@@ -2,15 +2,21 @@ package net.keencriptid.agriculture.datagen;
 
 import net.keencriptid.agriculture.Agriculture;
 import net.keencriptid.agriculture.block.ModBlocks;
+import net.keencriptid.agriculture.block.custom.CucumberCropBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
+
+import java.util.function.Function;
 
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -25,7 +31,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         cookingPot();
         nutrientSoil();
+        
+        makeCrop(((CropBlock) ModBlocks.CUCUMBER_CROP.get()), "cucmber_crop_stage", "cucumber_crop_stage");
 
+    }
+
+    public void makeCrop(CropBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((CucumberCropBlock) block).getAgeProperty()),
+                ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "block/" + textureName + state.getValue(((CucumberCropBlock) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
     }
 
     private void cookingPot(){

@@ -21,6 +21,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.FERTILIZER.get());
         basicItem(ModItems.CUCUMBER.get());
         basicItem(ModItems.CUCUMBER_SLICE.get());
+        basicItem(ModItems.CUCUMBER_SEEDS.get());
 
         withExistingParent(
                 ModBlocks.COOKING_POT.getId().getPath(),

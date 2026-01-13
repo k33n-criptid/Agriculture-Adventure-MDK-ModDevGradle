@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
@@ -67,13 +68,6 @@ public class NutrientSoilBlock extends FarmBlock {
     }
 
     @Override
-    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (!level.isClientSide){
-            randomTick(state, level, pos, random);
-        }
-    }
-
-    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(DRY_TICKS);
@@ -88,9 +82,8 @@ public class NutrientSoilBlock extends FarmBlock {
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
 
         if (!level.isClientSide){
-            float chance = fallDistance - 0.5f;
-            if (level.getRandom().nextFloat() < chance){
-                turnToDirt(entity, state, level, pos);
+            if (!(entity instanceof LivingEntity)){
+                return;
             }
 
         }
