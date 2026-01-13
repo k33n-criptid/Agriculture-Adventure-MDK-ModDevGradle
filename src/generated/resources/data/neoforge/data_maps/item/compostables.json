@@ -1,0 +1,10 @@
+{
+  "values": {
+    "agriculture:cucumber": {
+      "chance": 0.25
+    },
+    "agriculture:cucumber_seeds": {
+      "chance": 0.25
+    }
+  }
+}
