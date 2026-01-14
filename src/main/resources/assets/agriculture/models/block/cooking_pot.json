@@ -1,4 +1,5 @@
 {
+  "render": "translucent",
   "ambientocclusion": false,
   "textures": {
     "6": "agriculture:block/pot_water",
@@ -23,9 +24,9 @@
       }
     },
     {
-      "from": [3, 1, 2],
-      "to": [13, 2, 14],
-      "rotation": {"angle": 0, "axis": "y", "origin": [1, -2, 0]},
+      "from": [3, 1, 4],
+      "to": [13, 2, 12],
+      "rotation": {"angle": 0, "axis": "y", "origin": [1, -2, 2]},
       "faces": {
         "north": {"uv": [0, 0, 0, 0], "texture": "#inside"},
         "east": {"uv": [0, 0, 0, 0], "texture": "#inside"},
@@ -49,9 +50,9 @@
       }
     },
     {
-      "from": [2, 0, 2],
-      "to": [13, 9, 4],
-      "rotation": {"angle": 0, "axis": "y", "origin": [0, -3, 2]},
+      "from": [4, 0, 2],
+      "to": [12, 9, 4],
+      "rotation": {"angle": 0, "axis": "y", "origin": [2, -3, 2]},
       "faces": {
         "north": {"uv": [2, 0, 14, 13], "texture": "#side"},
         "east": {"uv": [0, 0, 0, 0], "texture": "#side"},
@@ -62,9 +63,9 @@
       }
     },
     {
-      "from": [3, 0, 12],
+      "from": [4, 0, 12],
       "to": [12, 9, 14],
-      "rotation": {"angle": 0, "axis": "y", "origin": [1, -3, -2]},
+      "rotation": {"angle": 0, "axis": "y", "origin": [2, -3, -2]},
       "faces": {
         "north": {"uv": [2, 0, 14, 13], "texture": "#side"},
         "east": {"uv": [0, 0, 0, 0], "texture": "#side"},
@@ -88,15 +89,15 @@
       }
     },
     {
-      "from": [4, 5.99, 4],
-      "to": [12, 6.01, 12],
+      "from": [4, 6, 4],
+      "to": [12, 6, 12],
       "rotation": {"angle": 0, "axis": "y", "origin": [2, 2, 2]},
       "faces": {
         "north": {"uv": [0, 0, 0, 0], "texture": "#6"},
         "east": {"uv": [0, 0, 0, 0], "texture": "#6"},
         "south": {"uv": [0, 0, 0, 0], "texture": "#6"},
         "west": {"uv": [0, 0, 0, 0], "texture": "#6"},
-        "up": {"uv": [0, 0, 0, 0], "texture": "#6", "tintindex": 0},
+        "up": {"uv": [4, 4, 12, 12], "texture": "#6", "tintindex": 0},
         "down": {"uv": [0, 0, 0, 0], "texture": "#6"}
       }
     }

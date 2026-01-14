@@ -19,9 +19,9 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void buildRecipes(RecipeOutput recipeOutput) {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FERTILIZER.get(), 3)
-                .pattern("DPP")
+                .pattern("   ")
                 .pattern("ADP")
-                .pattern("AAD")
+                .pattern("ADP")
                 .define('D', Blocks.DIRT)
                 .define('P', ModItems.PHOSPHORITE_PEBBLE.get())
                 .define('A', ModItems.POTASH_PEBBLE.get())

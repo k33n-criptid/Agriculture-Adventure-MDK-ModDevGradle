@@ -8,6 +8,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BoneMealItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
@@ -16,7 +17,7 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 
 
-public class FertilizerItem extends BoneMealItem {
+public class FertilizerItem extends Item {
 
     private final int radius;
 
@@ -49,7 +50,7 @@ public class FertilizerItem extends BoneMealItem {
             }
 
             for (int i = 0; i < 8; i++) {
-                if (!BoneMealItem.applyBonemeal(stack, level, targetPos, player)) {
+                if (!BoneMealItem.applyBonemeal(ItemStack.EMPTY, level, targetPos, player)) {
                     break;
                 }
                 grown = true;

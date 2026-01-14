@@ -13,9 +13,9 @@
     }
   },
   "pattern": [
-    "DPP",
+    "   ",
     "ADP",
-    "AAD"
+    "ADP"
   ],
   "result": {
     "count": 3,

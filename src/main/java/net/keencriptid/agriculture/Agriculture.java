@@ -3,6 +3,9 @@ package net.keencriptid.agriculture;
 import net.keencriptid.agriculture.block.ModBlocks;
 import net.keencriptid.agriculture.item.ModCreativeModeTabs;
 import net.keencriptid.agriculture.item.ModItems;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.neoforged.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -50,6 +53,7 @@ public class Agriculture {
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
