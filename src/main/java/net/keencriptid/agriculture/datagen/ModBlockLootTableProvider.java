@@ -31,6 +31,23 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
 
+    protected LootTable.Builder createWildCropLoot(Block wildCrop, Item cropItem, Item seedItem, float mincrop, float maxCrop, float minSeeds, float maxSeeds){
+        HolderLookup.RegistryLookup<Enchantment> enchantments = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+
+        return LootTable.lootTable()
+                .withPool(
+                        LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                                .add(LootItem.lootTableItem(cropItem)
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(mincrop, maxCrop)))
+                                        .apply(ApplyBonusCount.addOreBonusCount(enchantments.getOrThrow(Enchantments.FORTUNE))))
+                )
+                .withPool(
+                        LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                                .add(LootItem.lootTableItem(seedItem)
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(minSeeds, maxSeeds))))
+                );
+    }
+
     protected LootTable.Builder createCropLoot(Block cropBlock, Item cropItem, Item seedItem, float minCrop, float maxCrop, int maxAge, float minSeeds, float maxSeeds){
         HolderLookup.RegistryLookup<Enchantment> enchantments = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 
@@ -61,6 +78,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createMultipleOreDrops(ModBlocks.PHOSPHORITE.get(), ModItems.PHOSPHORITE_PEBBLE.get(), 3, 8));
         add(ModBlocks.POTASH.get(),
                 block -> createMultipleOreDrops(ModBlocks.POTASH.get(), ModItems.POTASH_PEBBLE.get(), 3, 8));
+
+        this.add(ModBlocks.CUCUMBER_WILDCROP.get(),
+                createWildCropLoot(ModBlocks.CUCUMBER_WILDCROP.get(), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get(), 1f, 2f, 1f, 2f));
 
         this.add(ModBlocks.CUCUMBER_CROP.get(),
                 createCropLoot(ModBlocks.CUCUMBER_CROP.get(), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get(), 1f, 3f, 7, 2, 4));

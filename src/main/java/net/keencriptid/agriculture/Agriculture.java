@@ -77,6 +77,7 @@ public class Agriculture {
             event.accept(ModBlocks.NUTRIENT_SOIL_BLOCK);
             event.accept(ModBlocks.PHOSPHORITE);
             event.accept(ModBlocks.POTASH);
+            event.accept(ModBlocks.CUCUMBER_WILDCROP);
         }
 
     }

@@ -1,7 +1,10 @@
-// 1.21	2026-01-13T16:45:40.113758	Registries
+// 1.21	2026-01-16T16:38:23.9954845	Registries
+91e186551f187c47965a5ba6845dabdbd3ed6d0d data/agriculture/neoforge/biome_modifier/add_cucumber_wildcrop.json
 e8dd9767f74163d3fd8d96f1939399ae86878724 data/agriculture/neoforge/biome_modifier/add_phosphorite.json
 191ea6e497dc703d900b91c5b1eeaeda34fb39ea data/agriculture/neoforge/biome_modifier/add_potash.json
+9e155b69eee12ea2506148559f52512efb01aa3d data/agriculture/worldgen/configured_feature/cucumber_wildcrop.json
 0e20aa5598067f7b3b0da4b458f1f7871280f2d9 data/agriculture/worldgen/configured_feature/phosphorite.json
 18a004594239453f11015876754bdadab93f9f58 data/agriculture/worldgen/configured_feature/potash.json
+d869b9b906aa3bba210aeb578539985aa442e271 data/agriculture/worldgen/placed_feature/cucumber_wildcrop_placed.json
 8ce5816eae99791b7f5b114e62bef2e86be293c8 data/agriculture/worldgen/placed_feature/phosphorite_placed.json
 1f59bf3141013bb37ff2824a89964faa9d7f69ea data/agriculture/worldgen/placed_feature/potash_placed.json

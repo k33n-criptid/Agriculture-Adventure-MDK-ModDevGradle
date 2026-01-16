@@ -4,14 +4,18 @@ import net.keencriptid.agriculture.Agriculture;
 import net.keencriptid.agriculture.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
@@ -22,6 +26,8 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_POTASH_KEY = registerKey("potash");
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_PHOSPHORITE_KEY = registerKey("phosphorite");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CUCUMBER_WILDCROP_KEY = registerKey("cucumber_wildcrop");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -34,6 +40,14 @@ public class ModConfiguredFeatures {
         register(context, OVERWORLD_POTASH_KEY, Feature.ORE, new OreConfiguration(graniteReplaceables,
                 ModBlocks.POTASH.get().defaultBlockState(), 14));
 
+        register(context, CUCUMBER_WILDCROP_KEY, Feature.RANDOM_PATCH,
+                FeatureUtils.simplePatchConfiguration(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockConfiguration(
+                                BlockStateProvider.simple(ModBlocks.CUCUMBER_WILDCROP.get())
+                        ), List.of(Blocks.GRASS_BLOCK)
+                )
+        );
     }
 
 

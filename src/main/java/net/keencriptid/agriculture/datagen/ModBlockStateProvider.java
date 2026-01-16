@@ -4,8 +4,10 @@ import net.keencriptid.agriculture.Agriculture;
 import net.keencriptid.agriculture.block.ModBlocks;
 import net.keencriptid.agriculture.block.custom.CucumberCropBlock;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,14 +34,27 @@ public class ModBlockStateProvider extends BlockStateProvider {
         cookingPot();
         nutrientSoil();
         
-        makeCrop(((CropBlock) ModBlocks.CUCUMBER_CROP.get()), "cucmber_crop_stage", "cucumber_crop_stage");
+        makeCrop(((CropBlock) ModBlocks.CUCUMBER_CROP.get()), "cucumber_crop_stage", "cucumber_crop_stage");
 
+        wildCrop(ModBlocks.CUCUMBER_WILDCROP.get(), "cucumber_crop_stage6");
     }
 
     public void makeCrop(CropBlock block, String modelName, String textureName) {
         Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName, textureName);
 
         getVariantBuilder(block).forAllStates(function);
+    }
+
+    public void wildCrop(Block block, String textureName) {
+        String name = BuiltInRegistries.BLOCK
+                .getKey(block)
+                .getPath();
+
+        ModelFile model = models()
+                .withExistingParent(name, mcLoc("block/cross"))
+                .texture("cross", modLoc("block/" + textureName))
+                .renderType("cutout");
+        getVariantBuilder(block).partialState().addModels(new ConfiguredModel(model));
     }
 
     private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName, String textureName) {

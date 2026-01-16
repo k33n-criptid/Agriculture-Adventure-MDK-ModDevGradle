@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -40,6 +41,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CUCUMBER_CROP = BLOCKS.register("cucumber_crop",
             () -> new CucumberCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)));
+
+    public static final DeferredBlock<Block> CUCUMBER_WILDCROP = registerBlock("cucumber_wildcrop",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT).strength(0.0f).instabreak().noOcclusion().noCollission().sound(SoundType.GRASS)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

@@ -1,28 +1,28 @@
 {
   "variants": {
     "age=0": {
-      "model": "agriculture:block/cucmber_crop_stage0"
+      "model": "agriculture:block/cucumber_crop_stage0"
     },
     "age=1": {
-      "model": "agriculture:block/cucmber_crop_stage1"
+      "model": "agriculture:block/cucumber_crop_stage1"
     },
     "age=2": {
-      "model": "agriculture:block/cucmber_crop_stage2"
+      "model": "agriculture:block/cucumber_crop_stage2"
     },
     "age=3": {
-      "model": "agriculture:block/cucmber_crop_stage3"
+      "model": "agriculture:block/cucumber_crop_stage3"
     },
     "age=4": {
-      "model": "agriculture:block/cucmber_crop_stage4"
+      "model": "agriculture:block/cucumber_crop_stage4"
     },
     "age=5": {
-      "model": "agriculture:block/cucmber_crop_stage5"
+      "model": "agriculture:block/cucumber_crop_stage5"
     },
     "age=6": {
-      "model": "agriculture:block/cucmber_crop_stage6"
+      "model": "agriculture:block/cucumber_crop_stage6"
     },
     "age=7": {
-      "model": "agriculture:block/cucmber_crop_stage7"
+      "model": "agriculture:block/cucumber_crop_stage7"
     }
   }
 }

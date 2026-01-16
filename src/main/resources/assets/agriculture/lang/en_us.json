@@ -14,6 +14,7 @@
   "block.agriculture.potash": "Potash",
   "block.agriculture.phosphorite": "Phosphorite",
   "block.agriculture.cucumber_crop": "Cucumber Crop",
+  "block.agriculture.cucumber_wilcrop": "Wild Cucumber",
 
   "creativetab.agriculture.agriculture_items": "Agriculture Items",
   "creativetab.agriculture.agriculture_blocks": "Agriculture Blocks",
