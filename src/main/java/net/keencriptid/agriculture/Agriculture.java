@@ -3,6 +3,7 @@ package net.keencriptid.agriculture;
 import net.keencriptid.agriculture.block.ModBlocks;
 import net.keencriptid.agriculture.item.ModCreativeModeTabs;
 import net.keencriptid.agriculture.item.ModItems;
+import net.keencriptid.agriculture.loot.ModLootModifiers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.fml.loading.FMLEnvironment;
@@ -47,6 +48,8 @@ public class Agriculture {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
