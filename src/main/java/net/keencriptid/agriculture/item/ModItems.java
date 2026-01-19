@@ -40,9 +40,6 @@ public class ModItems {
     public static final DeferredItem<Item> FERTILIZER = ITEMS.register("fertilizer",
             () -> new FertilizerItem(1, new Item.Properties().stacksTo(64)));
 
-    public static final DeferredItem<Item> COOKING_POT = ITEMS.register("cooking_pot",
-            () -> new BlockItem(ModBlocks.COOKING_POT.get(), new Item.Properties().stacksTo(64)));
-
     public static final DeferredItem<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds",
             () -> new ItemNameBlockItem(ModBlocks.CUCUMBER_CROP.get(), new Item.Properties()));
 

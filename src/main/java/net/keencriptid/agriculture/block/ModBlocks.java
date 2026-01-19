@@ -24,9 +24,9 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(Agriculture.MOD_ID);
 
-    public static final DeferredBlock<Block> COOKING_POT = BLOCKS.register("cooking_pot",
+    public static final DeferredBlock<Block> COOKING_POT = registerBlock("cooking_pot",
     () -> new CookingPotBlock(BlockBehaviour.Properties.of()
-            .noOcclusion().strength(0.5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+            .noOcclusion().sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> NUTRIENT_SOIL_BLOCK = registerBlock("nutrient_soil",
             () -> new NutrientSoilBlock(BlockBehaviour.Properties.of().sound(SoundType.ROOTED_DIRT).noOcclusion().strength(0.6f).randomTicks()));

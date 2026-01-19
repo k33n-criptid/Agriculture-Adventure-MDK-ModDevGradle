@@ -1,12 +1,16 @@
 package net.keencriptid.agriculture;
 
 import net.keencriptid.agriculture.block.ModBlocks;
+import net.keencriptid.agriculture.block.entity.ModBlockEntities;
 import net.keencriptid.agriculture.item.ModCreativeModeTabs;
 import net.keencriptid.agriculture.item.ModItems;
 import net.keencriptid.agriculture.loot.ModLootModifiers;
+import net.keencriptid.agriculture.screen.ModMenuTypes;
+import net.keencriptid.agriculture.screen.custom.CookingPotScreen;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.fml.loading.FMLEnvironment;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -50,6 +54,9 @@ public class Agriculture {
         ModBlocks.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -95,6 +102,11 @@ public class Agriculture {
     static class ClientModEvents {
         @SubscribeEvent
         static void onClientSetup(FMLClientSetupEvent event) {
+            }
+
+            @SubscribeEvent
+            public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.COOKINGPOT_MENU.get(), CookingPotScreen::new);
             }
     }
 }
