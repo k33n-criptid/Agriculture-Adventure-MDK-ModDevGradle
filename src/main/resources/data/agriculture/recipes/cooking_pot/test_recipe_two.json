@@ -1,0 +1,17 @@
+{
+  "type": "agriculture:cooking_pot",
+  "group": "test",
+  "ingredients": [
+    {"item": "minecraft:carrot"},
+    {"item": "minecraft:brown_mushroom"},
+    {"item":  "minecraft:yellow_flower"},
+    {},
+    {},
+    {}
+  ],
+  "dishware":
+  {"item": "minecraft:bowl"},
+  "liquid":
+  {},
+  "result": {"item": "minecraft:suspicious_stew", "count":  1 }
+}

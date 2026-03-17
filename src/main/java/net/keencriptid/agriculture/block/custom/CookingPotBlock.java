@@ -20,6 +20,8 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -104,6 +106,14 @@ public class CookingPotBlock extends BaseEntityBlock {
         }
 
         return ItemInteractionResult.SUCCESS;
+    }
+
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return (lvl, pos, st, blockEntity) -> {
+            if (blockEntity instanceof CookingPotEntity potEntity) {
+                CookingPotEntity.tick(lvl, pos, st, potEntity);
+            }
+        };
     }
 }
 

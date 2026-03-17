@@ -3,16 +3,21 @@ package net.keencriptid.agriculture.screen.custom;
 import net.keencriptid.agriculture.block.ModBlocks;
 import net.keencriptid.agriculture.block.entity.CookingPotEntity;
 import net.keencriptid.agriculture.screen.ModMenuTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.items.SlotItemHandler;
+import net.minecraft.resources.ResourceLocation;
 
 public class CookingPotMenu extends AbstractContainerMenu {
     public final CookingPotEntity blockEntity;
@@ -22,15 +27,51 @@ public class CookingPotMenu extends AbstractContainerMenu {
         this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()));
     }
 
-    public CookingPotMenu(int containerId, Inventory inv, BlockEntity blockEntity){
+    public CookingPotMenu(int containerId, Inventory inv, BlockEntity tileEntity) {
         super(ModMenuTypes.COOKINGPOT_MENU.get(), containerId);
-        this.blockEntity = ((CookingPotEntity) blockEntity);
+        this.blockEntity = ((CookingPotEntity) tileEntity);
         this.level = inv.player.level();
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 0, 80, 35));
+        // X and Y positions for slots
+        int[] slotX = {27, 45, 63, 27, 45, 63, 45, 127, 127};
+        int[] slotY = {18, 18, 18, 36, 36, 36, 60, 27, 48};
+
+        // Add all 9 slots
+        for (int i = 0; i < 9; i++) {
+            if (i == 6) {
+                this.addSlot(new SlotItemHandler(this.blockEntity.inventory, i, slotX[i], slotY[i]) {
+                    @Override
+                    public boolean mayPlace(ItemStack stack) {
+                        return isLiquid(stack);
+                    }
+                });
+            } else if (i == 8) {
+                this.addSlot(new SlotItemHandler(this.blockEntity.inventory, i, slotX[i], slotY[i]) {
+                    @Override
+                    public boolean mayPlace(ItemStack stack) {
+                        return isDishware(stack);
+                    }
+                });
+            } else if (i == 7) {
+                this.addSlot(new SlotItemHandler(this.blockEntity.inventory, i, slotX[i], slotY[i]) {
+                    @Override
+                    public boolean mayPlace(ItemStack stack) {
+                        return false;
+                    }
+                });
+            } else {
+                this.addSlot(new SlotItemHandler(this.blockEntity.inventory, i, slotX[i], slotY[i]) {
+                    @Override
+                    public boolean mayPlace(ItemStack stack) {
+                        return !isDishware(stack) && !isLiquid(stack);
+                    }
+                });
+            }
+        }
+
     }
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
@@ -49,7 +90,8 @@ public class CookingPotMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 1;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 9;  // must be the number of slots you have!
+
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
@@ -57,12 +99,24 @@ public class CookingPotMenu extends AbstractContainerMenu {
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
+        boolean isDishware = this.isDishware(sourceStack);
+        boolean isLiquid = this.isLiquid(sourceStack);
+
         // Check if the slot clicked is one of the vanilla container slots
         if (pIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
             // This is a vanilla container slot so merge the stack into the tile inventory
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
-                    + TE_INVENTORY_SLOT_COUNT, false)) {
-                return ItemStack.EMPTY;  // EMPTY_ITEM
+            if (isDishware) {
+                if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX + 8, TE_INVENTORY_FIRST_SLOT_INDEX + 9, false)) {
+                    return ItemStack.EMPTY;  // EMPTY_ITEM
+                }
+            } else if (isLiquid) {
+                if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX + 6, TE_INVENTORY_FIRST_SLOT_INDEX + 7, false)) {
+                    return ItemStack.EMPTY;  // EMPTY_ITEM
+                }
+            }else {
+                if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + 6, false)) {
+                    return ItemStack.EMPTY;
+                }
             }
         } else if (pIndex < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
             // This is a TE slot so merge the stack into the players inventory
@@ -88,6 +142,7 @@ public class CookingPotMenu extends AbstractContainerMenu {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 player, ModBlocks.COOKING_POT.get());
     }
+
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
@@ -101,4 +156,20 @@ public class CookingPotMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
+
+
+// Slot class information //
+
+    private static final TagKey<Item> COOKINGLIQUIDS =
+            TagKey.create(BuiltInRegistries.ITEM.key(), ResourceLocation.tryParse("agriculture:cooking_liquids"));
+    private static final TagKey<Item> DISHWARE =
+            TagKey.create(BuiltInRegistries.ITEM.key(), ResourceLocation.tryParse("agriculture:dishware"));
+
+    private boolean isDishware(ItemStack stack) {
+        return stack.is(ItemTags.create(DISHWARE.location()));
+    }
+    private boolean isLiquid(ItemStack stack) {
+        return stack.is(ItemTags.create(COOKINGLIQUIDS.location()));
+    }
+
 }

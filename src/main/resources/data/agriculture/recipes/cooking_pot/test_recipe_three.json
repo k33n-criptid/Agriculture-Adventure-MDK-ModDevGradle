@@ -1,0 +1,17 @@
+{
+  "type": "agriculture:cooking_pot",
+  "group": "test",
+  "ingredients": [
+    {"item": "minecraft:honeycomb"},
+    {"item": "minecraft:honeycomb"},
+    {"item": "minecraft:honeycomb"},
+    {"item": "minecraft:honeycomb"},
+    {"item": "minecraft:honeycomb"},
+    {"item": "minecraft:honeycomb"}
+  ],
+  "dishware":
+  {},
+  "liquid":
+  {},
+  "result": {"item": "minecraft:honey_bottle", "count":  3 }
+}

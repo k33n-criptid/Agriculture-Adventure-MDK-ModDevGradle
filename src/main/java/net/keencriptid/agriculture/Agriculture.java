@@ -5,6 +5,7 @@ import net.keencriptid.agriculture.block.entity.ModBlockEntities;
 import net.keencriptid.agriculture.item.ModCreativeModeTabs;
 import net.keencriptid.agriculture.item.ModItems;
 import net.keencriptid.agriculture.loot.ModLootModifiers;
+import net.keencriptid.agriculture.recipe.ModRecipes;
 import net.keencriptid.agriculture.screen.ModMenuTypes;
 import net.keencriptid.agriculture.screen.custom.CookingPotScreen;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -57,6 +58,8 @@ public class Agriculture {
         ModBlockEntities.register(modEventBus);
 
         ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -67,7 +70,8 @@ public class Agriculture {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-         }
+
+    }
 
 
     // Add the example block item to the building blocks tab
