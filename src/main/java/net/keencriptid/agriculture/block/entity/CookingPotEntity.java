@@ -1,5 +1,6 @@
 package net.keencriptid.agriculture.block.entity;
 
+import net.keencriptid.agriculture.recipe.CookingPotRecipe;
 import net.keencriptid.agriculture.recipe.CookingPotRecipeInput;
 import net.keencriptid.agriculture.recipe.ModRecipes;
 import net.keencriptid.agriculture.screen.custom.CookingPotMenu;
@@ -46,21 +47,44 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
     };
 
     public Recipe<CookingPotRecipeInput> getMatchingRecipes(Level level) {
+
         if (level == null) return null;
         var recipes = level.getRecipeManager().getAllRecipesFor(ModRecipes.COOKING_POT_TYPE.get());
+        System.out.println("=== CHECKING COOKING POT RECIPES ===");
+        System.out.println("Total recipes found: " + recipes.size());
 
         List<ItemStack> inputs = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             inputs.add(inventory.getStackInSlot(i));
+            ItemStack stack = inventory.getStackInSlot(i);
+            inputs.add(stack);
+            System.out.println("Grid Slot " + i + ": " + stack);
         }
+        ItemStack dishware = inventory.getStackInSlot(8);
+        ItemStack liquid = inventory.getStackInSlot(6);
 
-        CookingPotRecipeInput recipeInput = new CookingPotRecipeInput(2, 3, inputs, inventory.getStackInSlot(6), inventory.getStackInSlot(8));
+        System.out.println("Dishware: " + inventory.getStackInSlot(8));
+        System.out.println("Liquid: " + inventory.getStackInSlot(6));
+
+        CookingPotRecipeInput recipeInput = new CookingPotRecipeInput(3, 2, inputs, inventory.getStackInSlot(8), inventory.getStackInSlot(6));
 
         for (var recipeHolder : recipes) {
             Recipe<CookingPotRecipeInput> recipe = recipeHolder.value();
-            if (!recipe.matches(recipeInput, level)) continue;
-            return recipe;
+
+            System.out.println("---- Trying Recipe ----");
+            System.out.println("Result: " + ((CookingPotRecipe)recipe).getResult());
+            System.out.println("Recipe Dishware: " + ((CookingPotRecipe)recipe).getDishware());
+            System.out.println("Recipe Liquid: " + ((CookingPotRecipe)recipe).getLiquid());
+
+            if (recipe.matches(recipeInput, level)) {
+                System.out.println("MATCH FOUND ✅");
+                return recipe;
+            } else {
+                System.out.println("No match ❌");
             }
+        }
+
+        System.out.println("NO MATCHING RECIPE FOUND ❌❌❌");
         return null;
     }
 
@@ -106,7 +130,7 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
         }
 
         // check dishware and liquid
-        if (!hasIngredients && entity.inventory.getStackInSlot(6).isEmpty() && entity.inventory.getStackInSlot(8).isEmpty()) {
+        if (!hasIngredients && entity.inventory.getStackInSlot(8).isEmpty() && entity.inventory.getStackInSlot(6).isEmpty()) {
             entity.cookTime = 0;
             return;
         }
@@ -130,10 +154,10 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
             inputs.add(entity.inventory.getStackInSlot(i));
         }
         CookingPotRecipeInput recipeInput = new CookingPotRecipeInput(
-                2, 3,
+                3, 2,
                 inputs,
-                entity.inventory.getStackInSlot(6), // dishware
-                entity.inventory.getStackInSlot(8)  // liquid
+                entity.inventory.getStackInSlot(8), // dishware
+                entity.inventory.getStackInSlot(6)  // liquid
         );
 
         // step 4: assemble recipe
@@ -161,13 +185,13 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
         // handle dishware and liquid
         //consume dishware
         if (!recipeInput.getDishware().isEmpty()) {
-            entity.inventory.getStackInSlot(6).shrink(1);
+            entity.inventory.getStackInSlot(8).shrink(1);
         }
 
         //consume liquid and return bucket if water bucket
         ItemStack liquid = recipeInput.getLiquid();
         if (!liquid.isEmpty()) {
-            entity.inventory.getStackInSlot(8).shrink(1);
+            entity.inventory.getStackInSlot(6).shrink(1);
             if (liquid.is(Items.WATER_BUCKET)) {
                 //return empty bucket
                 ItemStack emptyBucket = new ItemStack(Items.BUCKET);
