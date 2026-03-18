@@ -17,11 +17,11 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
@@ -99,6 +99,9 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
     public void setHeated(boolean heated) {
         this.heated = heated;
         setChanged();
+        if (level != null && !level.isClientSide()) {
+            level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+        }
     }
 
     public int getCookTime() {
@@ -120,6 +123,12 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
     public static void tick(Level level, BlockPos pos, BlockState state, CookingPotEntity entity) {
         if (level.isClientSide()) return;
 
+        boolean isHeated = level.getBlockState(pos.below()).is(Blocks.MAGMA_BLOCK);
+        entity.setHeated(isHeated);
+
+        // Debug print to confirm
+        System.out.println("Heated: " + entity.isHeated() + " | Block below: " + level.getBlockState(pos.below()).getBlock());
+
         // Check if there are any ingredients
         boolean hasIngredients = false;
         for (int i = 0; i < 6; i++) {
@@ -130,14 +139,16 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
         }
 
         // If nothing to cook and no liquid/dishware, reset cookTime and exit
-        if (!hasIngredients && entity.inventory.getStackInSlot(6).isEmpty() && entity.inventory.getStackInSlot(8).isEmpty()) {
+        if (!hasIngredients && entity.inventory.getStackInSlot(6).isEmpty() && entity.inventory.getStackInSlot(8).isEmpty() && !isHeated) {
             entity.cookTime = 0;
             return;
         }
 
         Recipe<CookingPotRecipeInput> recipe = entity.getMatchingRecipes(level);
-        if (recipe == null) return;
-
+        if (recipe == null) {
+            entity.cookTime = 0;
+            return;
+        }
         // Build recipe input
         List<ItemStack> inputs = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
@@ -150,8 +161,37 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
                 entity.inventory.getStackInSlot(6)  // liquid
         );
 
+        entity.cookTime++;
+
+        entity.setChanged();
+        level.sendBlockUpdated(pos, state, state, 3);
+
+        if (entity.cookTime >= entity.cookTimeTotal) {
+            produceOutput(entity, recipe, recipeInput);
+            entity.cookTime = 0;
+        }
+    }
+
+    public List<ItemStack> getRemainingItems(CookingPotRecipeInput input, CookingPotRecipe recipe) {
+    List<ItemStack> remaining = new ArrayList<>();
+
+    for (int i = 0; i < 6; i++) {
+        ItemStack stack = input.getItems().get(i);
+        if (!stack.isEmpty() && stack.getItem() == Items.WATER_BUCKET) {
+            remaining.add(new ItemStack(Items.BUCKET));
+        } else {
+            remaining.add(ItemStack.EMPTY);
+        }
+    }
+    remaining.add(ItemStack.EMPTY); //slot 6 liquid
+    remaining.add(ItemStack.EMPTY); //slot 7 output
+    remaining.add(ItemStack.EMPTY); //slot 8 dishware
+    return remaining;
+    }
+
+    private static void produceOutput(CookingPotEntity entity, Recipe<CookingPotRecipeInput> recipe, CookingPotRecipeInput recipeInput) {
         // Assemble result
-        ItemStack result = recipe.assemble(recipeInput, level.registryAccess());
+        ItemStack result = recipe.assemble(recipeInput, entity.level.registryAccess());
         ItemStack outputStack = entity.inventory.getStackInSlot(7);
 
         // Check if output can fit
@@ -173,6 +213,10 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
             if (!stack.isEmpty()) stack.shrink(1);
         }
 
+        // Consume dishware
+        ItemStack dishware = entity.inventory.getStackInSlot(8);
+        if (!dishware.isEmpty()) dishware.shrink(1);
+
         // Consume liquid
         ItemStack liquid = entity.inventory.getStackInSlot(6);
         if (!liquid.isEmpty()) {
@@ -188,31 +232,7 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
                 }
             }
         }
-
-        // Consume dishware
-        ItemStack dishware = entity.inventory.getStackInSlot(8);
-        if (!dishware.isEmpty()) dishware.shrink(1);
-
-        entity.setChanged();
     }
-
-    public List<ItemStack> getRemainingItems(CookingPotRecipeInput input, CookingPotRecipe recipe) {
-        List<ItemStack> remaining = new ArrayList<>();
-
-        for (int i = 0; i <6; i++) {
-            ItemStack stack = input.getItems().get(i);
-            if (!stack.isEmpty() && stack.getItem() == Items.WATER_BUCKET) {
-                remaining.add(new ItemStack(Items.BUCKET));
-            } else {
-                remaining.add(ItemStack.EMPTY);
-            }
-        }
-        remaining.add(ItemStack.EMPTY); //slot 6 liquid
-        remaining.add(ItemStack.EMPTY); //slot 7 output
-        remaining.add(ItemStack.EMPTY); //slot 8 dishware
-        return remaining;
-    }
-
 
     public CookingPotEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.COOKINGPOT_BE.get(), pos, blockState);

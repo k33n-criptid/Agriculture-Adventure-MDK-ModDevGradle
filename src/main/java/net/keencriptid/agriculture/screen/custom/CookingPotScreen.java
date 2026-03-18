@@ -11,9 +11,9 @@ public class CookingPotScreen extends AbstractContainerScreen<CookingPotMenu> {
     private static final ResourceLocation GUI_TEXTURE =
             ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "textures/gui/cookingpot/cookingpot_gui.png");
     private static final ResourceLocation FIRE_SPRITE =
-            ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "cookingpot_fire");
+            ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "textures/gui/sprites/cookingpot_fire.png");
     private static final ResourceLocation ARROW_SPRITE =
-            ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "cookingpot_arrow");
+            ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "textures/gui/cookingpot_arrow.png");
 
     public CookingPotScreen(CookingPotMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
@@ -28,9 +28,9 @@ public class CookingPotScreen extends AbstractContainerScreen<CookingPotMenu> {
         int y = (height - imageHeight) / 2;
 
         guiGraphics.blit(GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight, imageWidth, imageHeight);
+        drawArrow(guiGraphics, x, y);
+        drawFire(guiGraphics, x, y);
 
-        drawFire(guiGraphics, x + 80, y + 56);
-        drawArrow(guiGraphics, x + 91, y + 27);
     }
 
     @Override
@@ -41,18 +41,18 @@ public class CookingPotScreen extends AbstractContainerScreen<CookingPotMenu> {
 
     private void drawFire(GuiGraphics guiGraphics, int x, int y) {
         if (menu.blockEntity.isHeated()) {
-            guiGraphics.blitSprite(FIRE_SPRITE, x, y, 18, 21);
+            System.out.println("Drawing fire!"); // Debug
+            guiGraphics.blitSprite(FIRE_SPRITE, x + 80 , y + 56, 18, 21);
         }
     }
 
 
     private static final int ARROW_WIDTH = 23;
-    private static final int ARROW_HEIGHT = 15;
 
     private void drawArrow(GuiGraphics guiGraphics, int x, int y) {
         int progress = menu.blockEntity.getCookProgressScaled(ARROW_WIDTH);
         if (progress > 0) {
-            guiGraphics.blitSprite(ARROW_SPRITE, ARROW_WIDTH, ARROW_HEIGHT, 0, 0, x, y, progress, ARROW_HEIGHT);
+            guiGraphics.blit(ARROW_SPRITE, x + 91, y + 27, 0, 0, progress, 16, 23, 15);
         }
     }
 }

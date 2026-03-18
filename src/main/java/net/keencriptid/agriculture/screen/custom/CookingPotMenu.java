@@ -172,4 +172,11 @@ public class CookingPotMenu extends AbstractContainerMenu {
         return stack.is(ItemTags.create(COOKINGLIQUIDS.location()));
     }
 
+    public int getCookProgressScaled(int pixels) {
+        if (blockEntity.getCookTime() == 0) return 0;
+        return blockEntity.getCookTime() * pixels / blockEntity.getCookTimeTotal();
+    }
+    public boolean isHeated() {
+        return blockEntity.isHeated();
+    }
 }
