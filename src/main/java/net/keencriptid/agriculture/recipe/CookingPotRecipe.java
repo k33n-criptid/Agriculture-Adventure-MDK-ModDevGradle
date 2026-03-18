@@ -80,17 +80,25 @@ public class CookingPotRecipe implements Recipe<CookingPotRecipeInput> {
     }
 
     private boolean matchesGrid(List<ItemStack> inputItems) {
-        if (inputItems.size() != ingredients.size()) return false;
+        List<Ingredient> remaining = new ArrayList<>(ingredients);
 
-        for (int i = 0; i < ingredients.size(); i++) {
-            Ingredient ingredient = ingredients.get(i);
-            ItemStack stack = inputItems.get(i);
+        for (ItemStack stack : inputItems) {
+            if (stack.isEmpty()) continue;
 
-            if (!ingredient.test(stack)) {
+            boolean matched = false;
+
+            for (Ingredient ingredient : remaining) {
+                if (ingredient.test(stack)) {
+                    remaining.remove(ingredient);
+                    matched = true;
+                    break;
+                }
+            }
+            if (!matched) {
                 return false;
             }
         }
-        return true;
+        return remaining.isEmpty();
     }
 
     @Override
@@ -122,7 +130,7 @@ public class CookingPotRecipe implements Recipe<CookingPotRecipeInput> {
         public static final MapCodec<CookingPotRecipe> CODEC = RecordCodecBuilder.mapCodec(
                 instance -> instance.group(
                         Codec.STRING.optionalFieldOf("group", "").forGetter(CookingPotRecipe::getGroup),
-                        Codec.list(Ingredient.CODEC).fieldOf("ingredients").forGetter(CookingPotRecipe::getIngredients),
+                        Ingredient.CODEC.listOf().fieldOf("ingredients").forGetter(CookingPotRecipe::getIngredients),
                         Ingredient.CODEC.optionalFieldOf("dishware", Ingredient.EMPTY).forGetter(CookingPotRecipe::getDishware),
                         Ingredient.CODEC.optionalFieldOf("liquid", Ingredient.EMPTY).forGetter(CookingPotRecipe::getLiquid),
                         ItemStack.STRICT_CODEC.fieldOf("result").forGetter(CookingPotRecipe::getResult)

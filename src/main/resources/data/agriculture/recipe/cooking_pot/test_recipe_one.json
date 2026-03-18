@@ -1,14 +1,19 @@
 {
   "type": "agriculture:cooking_pot",
   "ingredients": [
-    {"id": "minecraft:cooked_rabbit"},
-    {"id": "minecraft:brown_mushroom"},
-    {"id": "minecraft:baked_potato"},
-    {"id": "minecraft:carrot"}
+    {"item": "minecraft:cooked_rabbit"},
+    {"item": "minecraft:brown_mushroom"},
+    {"item": "minecraft:baked_potato"},
+    {"item": "minecraft:carrot"}
   ],
-  "dishware":
-  {"id": "minecraft:bowl"},
-  "liquid":
-  {"id": "minecraft:water_bucket"},
-  "result": {"id": "minecraft:rabbit_stew", "count":  1 }
+  "dishware": {
+    "item": "minecraft:bowl"
+  },
+  "liquid": {
+    "item": "minecraft:water_bucket"
+  },
+  "result": {
+    "id": "minecraft:rabbit_stew",
+    "count": 1
+  }
 }

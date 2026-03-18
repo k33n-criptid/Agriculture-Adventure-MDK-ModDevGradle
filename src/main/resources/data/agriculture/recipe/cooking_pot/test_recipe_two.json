@@ -1,14 +1,11 @@
 {
   "type": "agriculture:cooking_pot",
   "ingredients": [
-    {"id": "minecraft:carrot"},
-    {"id": "minecraft:brown_mushroom"},
-    {"id":  "minecraft:dandelion"},
-    {"id": "minecraft:air"},
-    {"id": "minecraft:air"},
-    {"id": "minecraft:air"}
+    {"item": "minecraft:dandelion"},
+    {"item": "minecraft:carrot"}
   ],
-  "dishware":
-  {"id": "minecraft:bowl"},
-  "result": {"id": "minecraft:suspicious_stew", "count":  1 }
+  "result": {
+    "id": "minecraft:diamond",
+    "count": 1
+  }
 }
