@@ -1,0 +1,25 @@
+{
+  "type": "agriculture:cooking_pot",
+  "dishware": {
+    "item": "minecraft:bowl"
+  },
+  "group": "soups",
+  "ingredients": [
+    {
+      "item": "minecraft:red_mushroom"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "agriculture:cucumber_slice"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:suspicious_stew"
+  }
+}

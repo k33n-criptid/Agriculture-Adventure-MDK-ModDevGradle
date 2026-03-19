@@ -1,0 +1,28 @@
+{
+  "type": "agriculture:cooking_pot",
+  "dishware": {
+    "item": "minecraft:bowl"
+  },
+  "group": "stews",
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_rabbit"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "liquid": {
+    "item": "minecraft:water_bucket"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:rabbit_stew"
+  }
+}
