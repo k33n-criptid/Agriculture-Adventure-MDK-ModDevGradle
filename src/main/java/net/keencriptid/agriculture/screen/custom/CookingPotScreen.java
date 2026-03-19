@@ -11,7 +11,7 @@ public class CookingPotScreen extends AbstractContainerScreen<CookingPotMenu> {
     private static final ResourceLocation GUI_TEXTURE =
             ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "textures/gui/cookingpot/cookingpot_gui.png");
     private static final ResourceLocation FIRE_SPRITE =
-            ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "textures/gui/sprites/cookingpot_fire.png");
+            ResourceLocation.fromNamespaceAndPath("agriculture", "container/cookingpot/cookingpot_fire");
     private static final ResourceLocation ARROW_SPRITE =
             ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "textures/gui/cookingpot_arrow.png");
 
@@ -41,7 +41,6 @@ public class CookingPotScreen extends AbstractContainerScreen<CookingPotMenu> {
 
     private void drawFire(GuiGraphics guiGraphics, int x, int y) {
         if (menu.blockEntity.isHeated()) {
-            System.out.println("Drawing fire!"); // Debug
             guiGraphics.blitSprite(FIRE_SPRITE, x + 80 , y + 56, 18, 21);
         }
     }

@@ -1,4 +1,4 @@
-// 1.21	2026-01-13T16:52:46.3482283	Recipes
+// 1.21.1	2026-03-19T17:13:31.0665854	Recipes
 2a71a636b32f7f652cc8a05e2b9cd95acea94659 data/agriculture/advancement/recipes/misc/cooking_pot.json
 f23761e784b4350a5ff62933ac10babda1262093 data/agriculture/advancement/recipes/misc/cucumber_slice.json
 772aea4f6f4ebc1c1cf791d5ed77b07a804f84f0 data/agriculture/advancement/recipes/misc/fertilizer.json
@@ -6,4 +6,6 @@ f23761e784b4350a5ff62933ac10babda1262093 data/agriculture/advancement/recipes/mi
 fbc6b3d7b10b7873fc78a3009b93caa444998a2b data/agriculture/recipe/cooking_pot.json
 f80641cabe493a1a927d6c245adc5b37260d703e data/agriculture/recipe/cucumber_slice.json
 f5263d115f5a737638f6054fae291ded4cfbc3f8 data/agriculture/recipe/fertilizer.json
+83472f9d4deb3edc135047208e97a84f0e8f940e data/agriculture/recipe/rabbit_stew.json
+8cb935f82aeb6f312052f9e6ace37861cd555938 data/agriculture/recipe/veggie_soup.json
 56d7c29db92fd838a31ecb64758dfa563e946a0c data/agriculture/recipe/watering_can.json

@@ -1,15 +1,20 @@
 package net.keencriptid.agriculture.recipe;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -26,11 +31,11 @@ public class CookingPotRecipe implements Recipe<CookingPotRecipeInput> {
     // inputItem & output ==> read from json file
     // CookingPotRecipeInput ==> Inventory of block entity
 
-    private final String group;
-    private final List<Ingredient> ingredients;  // 2x3 grid
-    private final Ingredient dishware;           // optional
-    private final Ingredient liquid;             // optional
-    private final ItemStack result;
+    public String group;
+    public List<Ingredient> ingredients;  // 2x3 grid
+    public Ingredient dishware;           // optional
+    public Ingredient liquid;             // optional
+    public ItemStack result;
 
     public CookingPotRecipe(String group, List<Ingredient> ingredients, Ingredient dishware, Ingredient liquid, ItemStack result){
         this.group = group;
@@ -127,6 +132,35 @@ public class CookingPotRecipe implements Recipe<CookingPotRecipeInput> {
     }
 
     public static class Serializer implements RecipeSerializer<CookingPotRecipe> {
+
+        public void toJson(JsonObject json, CookingPotRecipe recipe) {
+            json.addProperty("type", "agriculture:cooking_pot");
+            JsonArray ingredientsArray = new JsonArray();
+            for (Ingredient ing : recipe.getIngredients()) {
+                ingredientsArray.add(ingredientToJson(ing));
+            }
+            json.add("ingredients", ingredientsArray);
+            json.add("dishware", ingredientToJson(recipe.getDishware()));
+            json.add("liquid", ingredientToJson(recipe.getLiquid()));
+
+            JsonObject resultJson = new JsonObject();
+            resultJson.addProperty("id", BuiltInRegistries.ITEM.getKey(recipe.getResult().getItem()).toString());
+            resultJson.addProperty("count", recipe.getResult().getCount());
+            json.add("result", resultJson);
+
+            if (recipe.getGroup() != null && !recipe.getGroup().isEmpty()) {
+                json.addProperty("group", recipe.getGroup());
+            }
+        }
+
+        private JsonObject ingredientToJson(Ingredient ing) {
+            JsonObject obj = new JsonObject();
+            if (ing.getItems().length > 0) {
+                obj.addProperty("item", BuiltInRegistries.ITEM.getKey(ing.getItems()[0].getItem()).toString());
+            }
+            return obj;
+        }
+
         public static final MapCodec<CookingPotRecipe> CODEC = RecordCodecBuilder.mapCodec(
                 instance -> instance.group(
                         Codec.STRING.optionalFieldOf("group", "").forGetter(CookingPotRecipe::getGroup),

@@ -2,12 +2,18 @@ package net.keencriptid.agriculture.datagen;
 
 import net.keencriptid.agriculture.block.ModBlocks;
 import net.keencriptid.agriculture.item.ModItems;
+import net.keencriptid.agriculture.recipe.CookingPotRecipe;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 
+
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider {
@@ -47,5 +53,31 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('O', Blocks.OAK_PLANKS)
                 .define('S', Blocks.STONE_SLAB)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(recipeOutput);
+
+
+        SpecialRecipeBuilder.special(craftingBookCategory -> new CookingPotRecipe(
+                "stews", List.of(
+                Ingredient.of(Items.COOKED_RABBIT),
+                Ingredient.of(Items.BROWN_MUSHROOM),
+                Ingredient.of(Items.BAKED_POTATO),
+                Ingredient.of(Items.CARROT)
+        ),
+                Ingredient.of(Items.BOWL),
+                Ingredient.of(Items.WATER_BUCKET),
+                new ItemStack(Items.RABBIT_STEW)
+        )).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("agriculture", "rabbit_stew"));
+
+        SpecialRecipeBuilder.special(craftingBookCategory -> new CookingPotRecipe(
+                "soups", List.of(
+                Ingredient.of(Items.RED_MUSHROOM),
+                Ingredient.of(Items.BROWN_MUSHROOM),
+                Ingredient.of(ModItems.CUCUMBER_SLICE.get()),
+                Ingredient.of(Items.CARROT)
+        ),
+                Ingredient.of(Items.BOWL),
+                Ingredient.EMPTY,
+                new ItemStack(Items.SUSPICIOUS_STEW)
+        )).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("agriculture", "veggie_soup"));
     }
+
 }

@@ -89,19 +89,9 @@ public class CookingPotBlock extends BaseEntityBlock {
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof CookingPotEntity cookingPotEntity) {
-            if (player.isCrouching() && !level.isClientSide()) {
+            if (!level.isClientSide()) {
                 ((ServerPlayer) player).openMenu(new SimpleMenuProvider(cookingPotEntity, Component.literal("Cooking Pot")), pos);
                 return ItemInteractionResult.SUCCESS;
-            }
-            if (cookingPotEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty()) {
-                cookingPotEntity.inventory.insertItem(0, stack.copy(), false);
-                stack.shrink(1);
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
-            } else if (stack.isEmpty()) {
-                ItemStack stackOnCookingPot = cookingPotEntity.inventory.extractItem(0, 1, false);
-                player.setItemInHand(InteractionHand.MAIN_HAND, stackOnCookingPot);
-                cookingPotEntity.clearContents();
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
             }
         }
 

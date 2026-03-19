@@ -51,40 +51,24 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
 
         if (level == null) return null;
         var recipes = level.getRecipeManager().getAllRecipesFor(ModRecipes.COOKING_POT_TYPE.get());
-        System.out.println("=== CHECKING COOKING POT RECIPES ===");
-        System.out.println("Total recipes found: " + recipes.size());
 
         List<ItemStack> inputs = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             ItemStack stack = inventory.getStackInSlot(i);
             inputs.add(stack);
-            System.out.println("Grid Slot " + i + ": " + stack);
         }
         ItemStack dishware = inventory.getStackInSlot(8);
         ItemStack liquid = inventory.getStackInSlot(6);
-
-        System.out.println("Dishware: " + inventory.getStackInSlot(8));
-        System.out.println("Liquid: " + inventory.getStackInSlot(6));
 
         CookingPotRecipeInput recipeInput = new CookingPotRecipeInput(3, 2, inputs, inventory.getStackInSlot(8), inventory.getStackInSlot(6));
 
         for (var recipeHolder : recipes) {
             Recipe<CookingPotRecipeInput> recipe = recipeHolder.value();
 
-            System.out.println("---- Trying Recipe ----");
-            System.out.println("Result: " + ((CookingPotRecipe)recipe).getResult());
-            System.out.println("Recipe Dishware: " + ((CookingPotRecipe)recipe).getDishware());
-            System.out.println("Recipe Liquid: " + ((CookingPotRecipe)recipe).getLiquid());
-
             if (recipe.matches(recipeInput, level)) {
-                System.out.println("MATCH FOUND ✅");
                 return recipe;
-            } else {
-                System.out.println("No match ❌");
             }
         }
-
-        System.out.println("NO MATCHING RECIPE FOUND ❌❌❌");
         return null;
     }
 
@@ -126,9 +110,6 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
         boolean isHeated = level.getBlockState(pos.below()).is(Blocks.MAGMA_BLOCK);
         entity.setHeated(isHeated);
 
-        // Debug print to confirm
-        System.out.println("Heated: " + entity.isHeated() + " | Block below: " + level.getBlockState(pos.below()).getBlock());
-
         // Check if there are any ingredients
         boolean hasIngredients = false;
         for (int i = 0; i < 6; i++) {
@@ -136,6 +117,10 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
                 hasIngredients = true;
                 break;
             }
+        }
+
+        if (!isHeated && entity.cookTime > 0) {
+            entity.cookTime--;
         }
 
         // If nothing to cook and no liquid/dishware, reset cookTime and exit
@@ -160,8 +145,9 @@ public class CookingPotEntity extends BlockEntity implements MenuProvider {
                 entity.inventory.getStackInSlot(8), // dishware
                 entity.inventory.getStackInSlot(6)  // liquid
         );
-
-        entity.cookTime++;
+        if (isHeated) {
+            entity.cookTime++;
+        }
 
         entity.setChanged();
         level.sendBlockUpdated(pos, state, state, 3);
