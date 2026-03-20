@@ -8,6 +8,7 @@ import net.keencriptid.agriculture.loot.ModLootModifiers;
 import net.keencriptid.agriculture.recipe.ModRecipes;
 import net.keencriptid.agriculture.screen.ModMenuTypes;
 import net.keencriptid.agriculture.screen.custom.CookingPotScreen;
+import net.keencriptid.agriculture.screen.custom.OvenScreen;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.fml.loading.FMLEnvironment;
@@ -111,6 +112,8 @@ public class Agriculture {
             @SubscribeEvent
             public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(ModMenuTypes.COOKINGPOT_MENU.get(), CookingPotScreen::new);
+            event.register(ModMenuTypes.OVEN_MENU.get(), OvenScreen::new);
             }
+
     }
 }

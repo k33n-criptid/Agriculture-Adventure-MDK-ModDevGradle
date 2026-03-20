@@ -2,6 +2,7 @@ package net.keencriptid.agriculture.screen;
 
 import net.keencriptid.agriculture.Agriculture;
 import net.keencriptid.agriculture.screen.custom.CookingPotMenu;
+import net.keencriptid.agriculture.screen.custom.OvenMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -17,6 +18,9 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<CookingPotMenu>> COOKINGPOT_MENU =
             registerMenuType("cookingpot_menu", CookingPotMenu::new);
+
+    public static final DeferredHolder<MenuType<?>, MenuType<OvenMenu>> OVEN_MENU =
+            registerMenuType("oven_menu", OvenMenu::new);
 
     private static <T extends AbstractContainerMenu>DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType (String name, IContainerFactory<T> factory) {
 

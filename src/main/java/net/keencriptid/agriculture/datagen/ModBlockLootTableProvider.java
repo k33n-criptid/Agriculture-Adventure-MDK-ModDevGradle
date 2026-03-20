@@ -73,6 +73,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(ModBlocks.COOKING_POT.get());
         dropSelf(ModBlocks.NUTRIENT_SOIL_BLOCK.get());
+        dropSelf(ModBlocks.OVEN.get());
 
         add(ModBlocks.PHOSPHORITE.get(),
                 block -> createMultipleOreDrops(ModBlocks.PHOSPHORITE.get(), ModItems.PHOSPHORITE_PEBBLE.get(), 3, 8));

@@ -4,6 +4,7 @@ import net.keencriptid.agriculture.Agriculture;
 import net.keencriptid.agriculture.block.custom.CookingPotBlock;
 import net.keencriptid.agriculture.block.custom.CucumberCropBlock;
 import net.keencriptid.agriculture.block.custom.NutrientSoilBlock;
+import net.keencriptid.agriculture.block.custom.OvenBlock;
 import net.keencriptid.agriculture.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -45,6 +46,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CUCUMBER_WILDCROP = registerBlock("cucumber_wildcrop",
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.PLANT).strength(0.0f).instabreak().noOcclusion().noCollission().sound(SoundType.GRASS)));
+
+    public static final DeferredBlock<Block> OVEN = registerBlock("oven",
+            () -> new OvenBlock(BlockBehaviour.Properties.of()
+                    .sound(SoundType.MUD_BRICKS).noOcclusion().strength(3f).requiresCorrectToolForDrops()));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

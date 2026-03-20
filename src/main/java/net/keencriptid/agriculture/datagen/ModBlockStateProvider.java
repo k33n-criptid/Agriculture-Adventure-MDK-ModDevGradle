@@ -3,6 +3,8 @@ package net.keencriptid.agriculture.datagen;
 import net.keencriptid.agriculture.Agriculture;
 import net.keencriptid.agriculture.block.ModBlocks;
 import net.keencriptid.agriculture.block.custom.CucumberCropBlock;
+
+import net.keencriptid.agriculture.block.custom.OvenBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -33,10 +35,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         cookingPot();
         nutrientSoil();
+        oven();
         
         makeCrop(((CropBlock) ModBlocks.CUCUMBER_CROP.get()), "cucumber_crop_stage", "cucumber_crop_stage");
 
         wildCrop(ModBlocks.CUCUMBER_WILDCROP.get(), "cucumber_crop_stage6");
+
     }
 
     public void makeCrop(CropBlock block, String modelName, String textureName) {
@@ -83,9 +87,31 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 });
     }
 
+    private void oven(){
+        getVariantBuilder(ModBlocks.OVEN.get())
+                .forAllStates(state -> {
+                    Direction direction = state.getValue(OvenBlock.FACING);
+                    int yRot = switch (direction){
+                        case SOUTH -> 180;
+                        case WEST -> 270;
+                        case EAST -> 90;
+                        default -> 0;
+                    };
+                    return ConfiguredModel.builder()
+                            .modelFile(ovenModel())
+                            .rotationY(yRot)
+                            .build();
+                });
+    }
+
     private ModelFile cookingPotModel() {
         return new ModelFile.UncheckedModelFile(
                 modLoc("block/cooking_pot")
+        );
+    }
+    private ModelFile ovenModel() {
+        return new ModelFile.UncheckedModelFile(
+                modLoc("block/oven")
         );
     }
 

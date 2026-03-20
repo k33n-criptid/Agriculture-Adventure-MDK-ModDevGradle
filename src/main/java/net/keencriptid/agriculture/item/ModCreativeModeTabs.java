@@ -40,6 +40,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.PHOSPHORITE);
                         output.accept(ModBlocks.POTASH);
                         output.accept(ModBlocks.CUCUMBER_WILDCROP);
+                        output.accept(ModBlocks.OVEN);
                     }).build());
 
 
