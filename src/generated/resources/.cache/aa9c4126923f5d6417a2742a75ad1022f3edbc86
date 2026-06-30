@@ -1,9 +1,9 @@
-// 1.21.1	2026-03-20T01:11:05.3744979	Block States: agriculture
+// 1.21.1	2026-03-21T11:59:28.4561378	Block States: agriculture
 bdb9ff64c816a371ebe4f92be0e9bc54001f759a assets/agriculture/blockstates/cooking_pot.json
 175efb657b2108521ae23053b5d407168cbaa9e2 assets/agriculture/blockstates/cucumber_crop.json
 3601b059015a339aa7eb1b165d271a5d406345d5 assets/agriculture/blockstates/cucumber_wildcrop.json
 4847493a3651606475a9bc796dc9b8f64be96bff assets/agriculture/blockstates/nutrient_soil.json
-cc496d3eaed4082f6b3a0cb13ad9807aa45bec71 assets/agriculture/blockstates/oven.json
+03d812d31014bc306b2bfc5ce90ffcdcc6b00be9 assets/agriculture/blockstates/oven.json
 5182302a57145a8ed4b12d7bd52949377beb6804 assets/agriculture/blockstates/phosphorite.json
 436a6e4bb4570c36e10a6657c7bd9df5d415707c assets/agriculture/blockstates/potash.json
 a365a488bb5af423d667a7ebcfcd67c255d044fb assets/agriculture/models/block/cucumber_crop_stage0.json
@@ -15,6 +15,8 @@ ad2198e7b373f1cbae5b28d39d0f025a3e3265bf assets/agriculture/models/block/cucumbe
 633f64ed5c683008d29624896c6271fbd58e23b2 assets/agriculture/models/block/cucumber_crop_stage6.json
 4ef525f15d5d932b9d8f875047a7bdbc4b3959cf assets/agriculture/models/block/cucumber_crop_stage7.json
 41c4f130f012c46a7bf04d2e7cf2f4b2cee415d3 assets/agriculture/models/block/cucumber_wildcrop.json
+0c24313a72a5aa8e32bcd649cb42cc61a60f5f02 assets/agriculture/models/block/oven_lit_gen.json
+dc3976fb2c76c6bcfe28bfc3b8173a00ce013d2f assets/agriculture/models/block/oven_unlit_gen.json
 9ef6af0df5425a51ae1b1137711fda517d3fbb15 assets/agriculture/models/block/phosphorite.json
 90b94bec6be1440dc8cf95c893be3e1ef9de314b assets/agriculture/models/block/potash.json
 ffcbc1b1d6504c742796c0f8bdb2c701283bd322 assets/agriculture/models/item/nutrient_soil.json

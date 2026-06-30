@@ -22,6 +22,7 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> FOOD_ITEMS = createTag("food_items");
+        public static final TagKey<Item> FUEL_ITEMS = createTag("fuel_items");
 
         private static TagKey<Item> createTag(String name){
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, name));

@@ -2,12 +2,7 @@ package net.keencriptid.agriculture.item;
 
 import net.keencriptid.agriculture.Agriculture;
 import net.keencriptid.agriculture.block.ModBlocks;
-import net.keencriptid.agriculture.block.custom.NutrientSoilBlock;
-import net.keencriptid.agriculture.item.custom.CompostItem;
-import net.keencriptid.agriculture.item.custom.FertilizerItem;
-import net.keencriptid.agriculture.item.custom.WaterStickItem;
-import net.keencriptid.agriculture.item.custom.WateringCanItem;
-import net.minecraft.world.item.BlockItem;
+import net.keencriptid.agriculture.item.custom.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.neoforged.bus.api.IEventBus;
@@ -42,6 +37,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds",
             () -> new ItemNameBlockItem(ModBlocks.CUCUMBER_CROP.get(), new Item.Properties()));
+
 
 
 

@@ -2,8 +2,8 @@
 	"ambientocclusion": false,
 	"textures": {
 		"side": "agriculture:block/oven_side",
-		"top": "agriculture:block/oven_top",
-		"front": "agriculture:block/oven_front_unlit",
+		"top": "agriculture:block/oven_top_lit",
+		"front": "agriculture:block/oven_front_lit",
 		"inside": "agriculture:block/oven_bottom",
 		"particle": "agriculture:block/oven_side"
 	},

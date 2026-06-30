@@ -21,6 +21,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("oven_be", () -> BlockEntityType.Builder.of(
                     OvenBlockEntity::new, ModBlocks.OVEN.get()).build(null));
 
+    public static final Supplier<BlockEntityType<DutchOvenEntity>> DUTCH_OVEN =
+            BLOCK_ENTITIES.register("dutch_oven", () -> BlockEntityType.Builder.of(
+                    DutchOvenEntity::new, ModBlocks.DUTCH_OVEN.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

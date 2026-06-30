@@ -41,6 +41,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.POTASH);
                         output.accept(ModBlocks.CUCUMBER_WILDCROP);
                         output.accept(ModBlocks.OVEN);
+                        output.accept(ModBlocks.DUTCH_OVEN);
                     }).build());
 
 

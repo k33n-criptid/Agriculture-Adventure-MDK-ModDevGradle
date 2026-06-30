@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north":  { "model": "agriculture:block/dutch_oven", "y":  90},
+    "facing=south":  { "model": "agriculture:block/dutch_oven", "y": 270 },
+    "facing=west":   { "model": "agriculture:block/dutch_oven", "y": 180 },
+    "facing=east":   { "model": "agriculture:block/dutch_oven", "y": 180 }
+  }
+}

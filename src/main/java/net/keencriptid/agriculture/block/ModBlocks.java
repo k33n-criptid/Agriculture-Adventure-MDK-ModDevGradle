@@ -1,10 +1,7 @@
 package net.keencriptid.agriculture.block;
 
 import net.keencriptid.agriculture.Agriculture;
-import net.keencriptid.agriculture.block.custom.CookingPotBlock;
-import net.keencriptid.agriculture.block.custom.CucumberCropBlock;
-import net.keencriptid.agriculture.block.custom.NutrientSoilBlock;
-import net.keencriptid.agriculture.block.custom.OvenBlock;
+import net.keencriptid.agriculture.block.custom.*;
 import net.keencriptid.agriculture.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -49,7 +46,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> OVEN = registerBlock("oven",
             () -> new OvenBlock(BlockBehaviour.Properties.of()
-                    .sound(SoundType.MUD_BRICKS).noOcclusion().strength(3f).requiresCorrectToolForDrops()));
+                    .sound(SoundType.STONE).noOcclusion().strength(3f).requiresCorrectToolForDrops().lightLevel(state -> state.getValue(OvenBlock.LIT) ? 10 : 0)));
+
+    public static final DeferredBlock<Block> DUTCH_OVEN = registerBlock("dutch_oven",
+            () -> new DutchOvenBlock(BlockBehaviour.Properties.of().strength(0.0f).noOcclusion().sound(SoundType.STONE)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

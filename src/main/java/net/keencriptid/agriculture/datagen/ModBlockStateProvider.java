@@ -87,22 +87,31 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 });
     }
 
-    private void oven(){
+    private void oven() {
         getVariantBuilder(ModBlocks.OVEN.get())
                 .forAllStates(state -> {
                     Direction direction = state.getValue(OvenBlock.FACING);
-                    int yRot = switch (direction){
+                    int yRot = switch (direction) {
                         case SOUTH -> 180;
                         case WEST -> 270;
                         case EAST -> 90;
-                        default -> 0;
+                        default -> 0; // NORTH
                     };
+
+                    boolean lit = state.getValue(OvenBlock.LIT);
+
+                    // Use distinct model names to avoid duplication
+                    String modelName = lit ? "oven_lit_gen" : "oven_unlit_gen";
+                    String parentModel = lit ? "oven_lit" : "oven"; // parent JSON in resources
+
                     return ConfiguredModel.builder()
-                            .modelFile(ovenModel())
+                            .modelFile(models().withExistingParent(modelName,
+                                    ResourceLocation.fromNamespaceAndPath(Agriculture.MOD_ID, "block/" + parentModel)))
                             .rotationY(yRot)
                             .build();
                 });
     }
+
 
     private ModelFile cookingPotModel() {
         return new ModelFile.UncheckedModelFile(
